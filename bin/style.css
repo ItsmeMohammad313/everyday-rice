@@ -62,7 +62,8 @@ body {
 
 /* ================= Hero Section ================= */
 .hero-section {
-  height: 85vh;
+  width: 100%;
+  aspect-ratio: 16/9; /* or any ratio your image uses */
   overflow: hidden;
 }
 
@@ -70,12 +71,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 /* ================= Content Section ================= */
 .content-section {
   padding: 2.5rem 0;
+  border: 2px solid blue;
 }
 
 .content-section p {
@@ -91,8 +92,8 @@ body {
   height: 100%;
   min-height: 280px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  background: none;
+  background: transparent;
 }
 
 .about-img {
@@ -114,4 +115,13 @@ body {
   color: #ffffff;
   padding: 1rem 0;
   font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto; /* let image define height */
+  }
+  .hero-img {
+    height: auto; /* let image define its own height */
+    max-height: 60vh; /* optional max to avoid huge images */
+  }
 }
