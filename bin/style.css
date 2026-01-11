@@ -168,6 +168,9 @@ body {
   max-width: 100px;
   height: auto;
 }
+.img-row .col-auto {
+  background: transparent;
+}
 
 /* ================= Footer ================= */
 .footer-section {
