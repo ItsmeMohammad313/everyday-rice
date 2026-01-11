@@ -169,7 +169,7 @@ body {
   height: auto;
 }
 .col-auto {
-  background-color: transparent;
+  background-color: #fff;
   border-radius: 50%;
   padding: 10px;
 }
