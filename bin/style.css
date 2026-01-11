@@ -180,8 +180,12 @@ body {
 }
 
 .col-auto img {
-  max-width: 70px;
+  width: 100%;
   height: auto;
+  object-fit: covergit add .
+git commit -m "Responsive typography fixes and mobile layout improvements"
+git push origin main
+;
   background-color: transparent !important;
 }
 
