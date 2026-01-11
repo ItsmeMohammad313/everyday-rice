@@ -168,8 +168,8 @@ body {
   max-width: 100px;
   height: auto;
 }
-.img-row .col-auto {
-  background: transparent;
+.col-auto {
+  background-color: transparent;
 }
 
 /* ================= Footer ================= */
