@@ -17,7 +17,8 @@ body {
   color: var(--text-main);
   background-color: var(--rice-white);
 }
-/* Center logo container */
+
+/* ================= Center Logo ================= */
 .center-logo {
   position: absolute;
   top: 18px;
@@ -32,18 +33,18 @@ body {
   max-height: 160px;
   width: auto;
   object-fit: contain;
-  transition: transform 0.35s ease; /* GPU-friendly */
+  transition: transform 0.35s ease;
   will-change: transform;
 }
 
 .center-logo.shrink img {
-  transform: scale(0.5); /* instead of height change */
+  transform: scale(0.5);
 }
 
 /* ================= Navbar ================= */
 .coffee-navbar {
   background: linear-gradient(90deg, var(--rice-white), var(--rice-light));
-  border: 0px solid var(--rice-border);
+  border: none;
   border-radius: 14px;
   margin: 12px 16px;
   padding: 0 12px;
@@ -54,8 +55,10 @@ body {
 }
 
 .coffee-navbar .navbar-brand {
-  color: var(--coffee-dark);
-  font-size: 1.05rem;
+  color: #8c673f !important;
+  font-family: "EB Garamond", serif;
+  font-weight: 900 !important;
+  font-size: 26px !important;
   letter-spacing: 0.3px;
 }
 
@@ -74,26 +77,11 @@ body {
   width: auto;
   object-fit: contain;
 }
-.navbar-brand {
-  font-family: "EB Garamond", serif;
-  font-weight: 900 !important;
-  font-size: 26px !important;
-  color: #8c673f !important;
-}
-
-@media (max-width: 576px) {
-  .coffee-navbar {
-    margin: 8px;
-    border-radius: 10px;
-  }
-}
 
 /* ================= Hero Section ================= */
 .hero-section {
   width: 100%;
-  min-height: 90vh;
-  height: 95vh;
-  aspect-ratio: 16/9; /* or any ratio your image uses */
+  aspect-ratio: 16/9;
   overflow: hidden;
 }
 
@@ -102,30 +90,30 @@ body {
   height: 100%;
   object-fit: cover;
 }
-/* "ORGANIC RICE" Styling */
+
+/* ================= Titles ================= */
 .organic-rice-title {
   font-family: "EB Garamond", serif;
-  font-size: 3rem;
+  font-size: 3rem; /* desktop default */
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
   color: #ad885d;
+  line-height: 1.1;
 }
 
-/* "PREMIUM QUALITY" Styling */
 .premium-quality-subtitle {
   font-family: "Libre Caslon Display", serif;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* desktop default */
   font-weight: 700;
   letter-spacing: 4px;
   margin-top: 2px;
   text-transform: uppercase;
+  line-height: 1.2;
 }
-
 /* ================= Content Section ================= */
 .content-section {
   padding: 2rem 0;
-  border: 0px solid blue;
 }
 
 .content-section p {
@@ -141,7 +129,6 @@ body {
   height: 100%;
   min-height: 280px;
   overflow: hidden;
-  background: none;
   background: transparent;
 }
 
@@ -152,10 +139,34 @@ body {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .about-img-wrap {
-    min-height: 220px;
-  }
+/* ================= Bold Line ================= */
+.bold-line {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 64px; /* default desktop */
+  line-height: 1.1;
+  margin: 40px 0;
+  text-align: center;
+  font-family: "Libre Caslon Display", serif;
+  letter-spacing: 0.1rem;
+  color: #8c673f;
+  padding: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= Images Row ================= */
+.images-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 40px 0;
+  background: transparent;
+}
+
+.images-row img {
+  max-width: 100px;
+  height: auto;
 }
 
 /* ================= Footer ================= */
@@ -165,45 +176,78 @@ body {
   padding: 1rem 0;
   font-size: 0.9rem;
 }
-@media (max-width: 768px) {
-  .hero-section {
-    height: auto; /* let image define height */
-  }
-  .hero-img {
-    height: auto; /* let image define its own height */
-    max-height: 60vh; /* optional max to avoid huge images */
+/* ================= Media Queries ================= */
+
+/* Medium devices (tablets) */
+@media (max-width: 992px) {
+  .bold-line {
+    font-size: 48px;
   }
 }
+
+/* Small devices (phones) */
 @media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+  }
+  .hero-img {
+    height: auto;
+    max-height: 60vh;
+  }
+  .about-img-wrap {
+    min-height: 220px;
+  }
   .center-logo img {
     height: 80px;
     max-height: 90px;
   }
 }
-.bold-line {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 28px !important; /* 6% of viewport width */
-  line-height: 1.2;
-  margin: 20px 0;
-  text-align: center;
-  font-family: "Libre Caslon Display", serif !important;
-  letter-spacing: 0.1rem;
-  padding: 10px 0;
-  color: #8c673f !important;
+
+/* Extra small devices (phones like iPhone / small Samsung) */
+@media (max-width: 576px) {
+  .bold-line {
+    font-size: 24px !important; /* smaller than before */
+    margin: 15px 0;
+  }
+  .coffee-navbar {
+    margin: 8px;
+    border-radius: 10px;
+  }
+  .center-logo {
+    display: none; /* hide logo */
+  }
+}
+/* ================= Responsive Media Queries for Titles ================= */
+
+/* Medium devices (tablets) */
+@media (max-width: 992px) {
+  .organic-rice-title {
+    font-size: 2.4rem; /* slightly smaller for tablets */
+  }
+  .premium-quality-subtitle {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+  }
 }
 
-/* Images Row Styling */
-.images-row {
-  display: flex;
-  justify-content: space-around; /* center horizontally */
-  align-items: center; /* center vertically */
-  gap: 15px; /* space between images */
-  padding: 40px 0; /* top and bottom gap */
-  background: transparent; /* no background color */
+/* Small devices (phones like large smartphones) */
+@media (max-width: 768px) {
+  .organic-rice-title {
+    font-size: 2rem;
+  }
+  .premium-quality-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
 }
 
-.images-row img {
-  max-width: 100px; /* adjust image size */
-  height: auto;
+/* Extra small devices (iPhone / small Samsung phones) */
+@media (max-width: 576px) {
+  .organic-rice-title {
+    font-size: 1.6rem;
+  }
+  .premium-quality-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
 }
