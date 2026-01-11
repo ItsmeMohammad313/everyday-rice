@@ -17,15 +17,37 @@ body {
   color: var(--text-main);
   background-color: var(--rice-white);
 }
+/* Center logo container */
+.center-logo {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  pointer-events: none;
+}
+
+.center-logo img {
+  height: 140px;
+  max-height: 160px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.35s ease; /* GPU-friendly */
+  will-change: transform;
+}
+
+.center-logo.shrink img {
+  transform: scale(0.5); /* instead of height change */
+}
 
 /* ================= Navbar ================= */
 .coffee-navbar {
   background: linear-gradient(90deg, var(--rice-white), var(--rice-light));
-  border: 1px solid var(--rice-border);
+  border: 0px solid var(--rice-border);
   border-radius: 14px;
   margin: 12px 16px;
   padding: 0 12px;
-  min-height: 64px;
+  min-height: 94px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
@@ -52,6 +74,12 @@ body {
   width: auto;
   object-fit: contain;
 }
+.navbar-brand {
+  font-family: "EB Garamond", serif;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  color: #8c673f !important;
+}
 
 @media (max-width: 576px) {
   .coffee-navbar {
@@ -63,6 +91,8 @@ body {
 /* ================= Hero Section ================= */
 .hero-section {
   width: 100%;
+  min-height: 90vh;
+  height: 95vh;
   aspect-ratio: 16/9; /* or any ratio your image uses */
   overflow: hidden;
 }
@@ -72,11 +102,30 @@ body {
   height: 100%;
   object-fit: cover;
 }
+/* "ORGANIC RICE" Styling */
+.organic-rice-title {
+  font-family: "EB Garamond", serif;
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  color: #ad885d;
+}
+
+/* "PREMIUM QUALITY" Styling */
+.premium-quality-subtitle {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
 
 /* ================= Content Section ================= */
 .content-section {
-  padding: 2.5rem 0;
-  border: 2px solid blue;
+  padding: 2rem 0;
+  border: 0px solid blue;
 }
 
 .content-section p {
@@ -124,4 +173,37 @@ body {
     height: auto; /* let image define its own height */
     max-height: 60vh; /* optional max to avoid huge images */
   }
+}
+@media (max-width: 768px) {
+  .center-logo img {
+    height: 80px;
+    max-height: 90px;
+  }
+}
+.bold-line {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 28px !important; /* 6% of viewport width */
+  line-height: 1.2;
+  margin: 20px 0;
+  text-align: center;
+  font-family: "Libre Caslon Display", serif !important;
+  letter-spacing: 0.1rem;
+  padding: 10px 0;
+  color: #8c673f !important;
+}
+
+/* Images Row Styling */
+.images-row {
+  display: flex;
+  justify-content: space-around; /* center horizontally */
+  align-items: center; /* center vertically */
+  gap: 15px; /* space between images */
+  padding: 40px 0; /* top and bottom gap */
+  background: transparent; /* no background color */
+}
+
+.images-row img {
+  max-width: 100px; /* adjust image size */
+  height: auto;
 }

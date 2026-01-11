@@ -17,6 +17,12 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fleur+De+Leah&family=Libre+Caslon+Display&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="bin/style.css" />
@@ -25,6 +31,13 @@
   <body>
     <!-- ================= Navbar ================= -->
     <header>
+      <div class="center-logo">
+        <img
+          src="src/favicon.png"
+          alt="Every Day Rice Logo"
+          class="navbar-logo me-2"
+        />
+      </div>
       <nav class="navbar navbar-expand-lg coffee-navbar">
         <div class="container-fluid px-3">
           <!-- Logo + Brand -->
@@ -32,12 +45,7 @@
             class="navbar-brand d-flex align-items-center fw-semibold"
             href="#"
           >
-            <img
-              src="src/favicon.png"
-              alt="Every Day Rice Logo"
-              class="navbar-logo me-2"
-            />
-            Every Day Rice
+            Everyday Rice
           </a>
 
           <div class="d-flex align-items-center ms-auto">
@@ -77,7 +85,7 @@
           <div class="row g-0">
             <div class="col-12">
               <img
-                src="src/rice-1.jpg"
+                src="src/cover.jpeg"
                 alt="Rice and Wheat"
                 class="img-fluid w-100 hero-img"
               />
@@ -85,10 +93,18 @@
           </div>
         </div>
       </section>
-
       <!-- ===== About Section ===== -->
       <section id="about" class="content-section">
         <div class="container">
+          <!-- Title Row -->
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1 class="organic-rice-title">ORGANIC RICE</h1>
+              <p class="premium-quality-subtitle">PREMIUM QUALITY</p>
+            </div>
+          </div>
+
+          <!-- Text + Image Row -->
           <div class="row align-items-center about-row">
             <!-- Text Column -->
             <div class="col-md-6 mb-3">
@@ -121,6 +137,32 @@
               </div>
             </div>
           </div>
+
+          <!-- Bold Line Section -->
+          <div class="row">
+            <div class="col-12 text-center">
+              <p class="bold-line">A BETTER LIFE BEGINS WITH BETTER RICE</p>
+            </div>
+          </div>
+
+          <!-- Images Row Section -->
+          <div class="row images-row">
+            <div class="col-auto">
+              <img src="src/quality.png" alt="Quality" />
+            </div>
+            <div class="col-auto">
+              <img src="src/1.png" alt="1" />
+            </div>
+            <div class="col-auto">
+              <img src="src/2.png" alt="2" />
+            </div>
+            <div class="col-auto">
+              <img src="src/3.png" alt="3" />
+            </div>
+            <div class="col-auto">
+              <img src="src/4.png" alt="4" />
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -141,9 +183,30 @@
     <!-- Footer dynamic year -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        /* Footer year */
         const year = new Date().getFullYear();
-        const footerText = `© ${year} All right reserved | Created by Mohammad`;
-        document.getElementById("footer-text").textContent = footerText;
+        const footerText = `© ${year} All rights reserved | Created by Mohammad`;
+        const footerEl = document.getElementById("footer-text");
+        if (footerEl) footerEl.textContent = footerText;
+
+        /* Center logo shrink on scroll */
+        const logo = document.querySelector(".center-logo");
+        if (!logo) return;
+        let ticking = false;
+
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              if (window.scrollY > 60) {
+                logo.classList.add("shrink");
+              } else {
+                logo.classList.remove("shrink");
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
       });
     </script>
   </body>
